@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formulário</h1>
+    <form id="meuFormulario">
+        <div class="divNome">
+          <label for="nomeCompleto">Nome Completo:</label>
+          <input type="text" id="nomeCompleto" name="nomeCompleto">
+        </div>
+        <div class="divIdade">
+            <label for="idade">Idade:</label>
+            <input type="text" id="idade" name="idade">
+          </div>
+        <div class="divCidade">
+          <label for="cidade">Cidade:</label>
+          <select id="cidade" name="cidade">
+            <option></option>
+            <option value="DI">Dois Irmãos</option>
+            <option value="NH">Novo Hamburgo</option>
+            <option value="IV">Ivoti</option>
+            <option value="MR">Morro Reuter</option>
+          </select>
+        </div>       
+      <button type="submit" id="btnSalvar">Salvar</button> 
+      </form>
+      <h1>Tabela</h1>
+    <table id="table"> <!--Gera uma tabela:-->
+        <thead>
+            <tr class="table">
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>

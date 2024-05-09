@@ -1,118 +1,77 @@
+const nome = document.querySelector('#nomeCompleto');
+const idade = document.querySelector('#idade');
+const cidade = document.querySelector('#cidade');
+const tbody = document.querySelector('#table tbody');
+const btnSalvar = document.querySelector('#bntSalvar');
+
 // Cria um parágrafo:
 const container = document.getElementById('container');
-
 const paragraph = document.createElement('p');
-paragraph.textContent = 'Este parágrafo foi criado com JavaScript!';
-
+paragraph.textContent = 'Cadastro De Pessoas';
 container.appendChild(paragraph);
 
 // Exibe uma lista de itens:
 const lista = document.getElementById('minhaLista');
-
-const itens = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
-
-itens.forEach(function(item) {
+const dados = ['> Nome completo', '> Idade', '> Cidade'];
+dados.forEach(function(item) {
     const novoItem = document.createElement('li');
     novoItem.textContent = item;
-
     lista.appendChild(novoItem);
 });
 
-// Cria uma tabela:
-const corpoTabela = document.getElementById('corpoTabela');
-
-const dados = [
-    { nome: 'João', idade: 30, cidade: 'Rio de Janeiro' },
-    { nome: 'Maria', idade: 25, cidade: 'São Paulo' },
-    { nome: 'Pedro', idade: 40, cidade: 'Belo Horizonte' },
-    // Adicione mais dados aqui...
-];
-
-// Função para criar uma linha da tabela
-function criarLinha(dados) {
-  const linha = document.createElement('tr');
-
-  for (const propriedade in dados) {
-    const valor = dados[propriedade];
-    const celula = document.createElement('td');
-    celula.textContent = valor;
-    linha.appendChild(celula);
+// Função para o botão salvar - ação de click do mouse
+btnSalvar.onclick = (event) => {
+    event.preventDefault();
+  // Validar dados - se campos estão preenchidos
+  if (!nome.value || !idade.value || !cidade.value) {
+    alert('Preencha todos os campos!');
+    return;
   }
+  // Adiciona os valores ao array
+  items.push({
+    nome: nome.value,
+    idade: idade.value,
+    cidade: cidade.value,
+  });
+  setItensBDV();
+  loadItens();
+  limparCampos();
+  alert("Registro cadastrado com sucesso!");
+};
 
-  return linha;
+// Limpa os campos
+function limparCampos() {
+  nome.value = "";
+  idade.value = "";
+  cidade.value = "";
 }
 
-// Popula a tabela com os dados
-dados.forEach(function(dado) {
-  const novaLinha = criarLinha(dado);
-  corpoTabela.appendChild(novaLinha);
-});
-
-// Cria o formulario --> AJUSTAR
-const formulario = document.getElementById('meuFormulario');
-
-const campos = [
-    {
-        tipo: 'text',
-        nome: 'nome',
-        label: 'Nome Completo:',
-        placeholder: 'Digite seu nome completo'
-    },
-    {
-        tipo: 'email',
-        nome: 'email',
-        label: 'E-mail:',
-        placeholder: 'Digite seu e-mail'
-    },
-    {
-        tipo: 'select',
-        nome: 'cidade',
-        label: 'Cidade:',
-        opcoes: [
-            { valor: 'rio-de-janeiro', texto: 'Rio de Janeiro' },
-            { valor: 'sao-paulo', texto: 'São Paulo' },
-            { valor: 'belo-horizonte', texto: 'Belo Horizonte' }
-        ]
-    },
-    {
-        tipo: 'submit',
-        valor: 'Enviar Formulário'
-    }
-];
-
-function criarCampo(campo) {
-    const novoCampo = document.createElement(campo.tipo === 'select' ? 'select' : 'input');
-    novoCampo.name = campo.nome;
-
-    if (campo.tipo === 'text' || campo.tipo === 'email') {
-        novoCampo.type = campo.tipo;
-        novoCampo.placeholder = campo.placeholder;
-    } else if (campo.tipo === 'select') {
-        campo.opcoes.forEach(opcao => {
-            const novaOpcao = document.createElement('option');
-            novaOpcao.value = opcao.valor;
-            novaOpcao.textContent = opcao.texto;
-            novoCampo.appendChild(novaOpcao);
-        });
-    }
+// Seta os dados na tabela de vagas
+function insertItem(items, index) {
+  let tr = document.createElement("tr");
+  // Cria a tabela HTML
+  tr.innerHTML = `
+      <td>${items.nome}</td>
+      <td>${items.idade}</td>
+      <td>${items.cidade}</td>
+    `;
+  tbody.appendChild(tr);
 }
 
-// Exibe as imagens
-const containerImagens = document.getElementById('container-imagens');
+// Carrega na tabela os itens salvos no json
+function loadItens() {
+  items = getItensBDV();
+  tbody.innerHTML = "";
+  items.forEach((items, index) => {
+    insertItem(items, index);
+  });
+}
 
-const imagens = [
-    { src: 'imagem1.jpg', alt: 'Descrição da Imagem 1' },
-    { src: 'imagem2.jpg', alt: 'Descrição da Imagem 2' },
-    { src: 'imagem3.jpg', alt: 'Descrição da Imagem 3' },
-    // Adicione mais imagens aqui...
-];
+// Armazena os dados no localStorage atraves de um json
+const getItensBDV = () => JSON.parse(localStorage.getItem("db_registros")) ?? [];
+const setItensBDV = () => localStorage.setItem("db_registros", JSON.stringify(items));
 
-imagens.forEach(imagem => {
-    const novaImagem = document.createElement('img');
-    novaImagem.src = imagem.src;
-    novaImagem.alt = imagem.alt;
+//Inicia a tela carregando os dados armazenados no localStorage nas tabelas
+//loadItens();
 
-    containerImagens.appendChild(novaImagem);
-});
 
-        
