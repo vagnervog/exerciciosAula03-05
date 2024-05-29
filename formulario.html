@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Formulário</h1>
+    <h1 id="formulario">Formulário</h1>
     <form id="meuFormulario">
         <div class="divNome">
           <label for="nomeCompleto">Nome Completo:</label>
@@ -20,7 +20,9 @@
         <div class="divCidade">
           <label for="cidade">Cidade:</label>
           <select id="cidade" name="cidade">
-            <option></option>
+            <option>
+              <p id="cidade">clique para selecionar a cidade</p>
+            </option>
             <option value="DI">Dois Irmãos</option>
             <option value="NH">Novo Hamburgo</option>
             <option value="IV">Ivoti</option>
@@ -29,7 +31,7 @@
         </div>       
       <button type="submit" id="btnSalvar">Salvar</button> 
       </form>
-      <h1>Tabela</h1>
+      <h1 id="tabela">Tabela</h1>
     <table id="table"> <!--Gera uma tabela:-->
         <thead>
             <tr class="table">

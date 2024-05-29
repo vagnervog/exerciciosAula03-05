@@ -1,40 +1,73 @@
 /* Cria um parágrafo: */
 #container p {
-    color: green;
+    color: rgba(4, 44, 8, 0.753);
     font-size: 60px;
     text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top:auto;
 }
 
 /* Exibe uma lista de itens: */
 #minhaLista {
     list-style-type: none; /* Remove os marcadores padrão */
-    padding: 0; /* Remove o espaçamento interno padrão */
-    margin: 15px;
+    padding-top:  5%; /* Remove o espaçamento interno padrão */
+    margin-left: 36%;
+
+     
 }
 
 #minhaLista li {
     padding: 10px; /* Adiciona espaçamento entre os itens da lista */
-    margin-bottom: 5px; /* Adiciona espaço entre os itens da lista */
-    background-color: #f0f0f0; /* Cor de fundo para cada item */
-    border-radius: 5px; /* Arredonda os cantos dos itens */
+    margin-bottom: 10px; /* Adiciona espaço entre os itens da lista */
+    background-color: #dbd9d1b7; /* Cor de fundo para cada item */
+    border-radius: 10px; /* Arredonda os cantos dos itens */
+    border: none;
+    width: 20%;
+    margin-left: 40%;
+    
+}
+#tabela {
+    margin-left: 44%;
+    border: 3px solid red ;
+    width: 160px;
+    text-align: center
+    
 }
 
 /*Gera uma tabela:*/
 table {
-    border-collapse: collapse; /* Faz com que as bordas das células se unam */
-    width: 100%; /* Ajusta a largura da tabela para 100% da tela */
-    margin: 15px;
+    
+    border-bottom: inset;
+    border-color: black;
+    padding-bottom: 5px;  
+    width: 50%; /* Ajusta a largura da tabela para 100% da tela */
+    margin: 30px;
+    margin-left: 25%;
+    
 }
 
 th, td {
-    border: 1px solid #ddd; /* Adiciona bordas para cada célula */
+    border: none; /* Adiciona bordas para cada célula */
     padding: 8px; /* Adiciona espaçamento interno nas células */
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: center; /* Alinha o texto ao centro */
+    
 }
 
 th {
-    background-color: #f0f0f0; /* Cor de fundo para os cabeçalhos */
+    background-color: #d65c47c5; /* Cor de fundo para os cabeçalhos */
+    border-bottom: 5px;
+    border-radius: 5px;
+    border-color: gray;
+    padding-bottom: 5px;
+    
+}
+
+#formulario {
+    margin-left: 44%;
+    border: 3px solid red;
+    width: 160px;
+    text-align: center
+    
 }
 
 /*Cria um formulário*/
@@ -43,12 +76,17 @@ form {
     margin: 15px; /* Centraliza o formulário na tela */
     padding: 20px; /* Adiciona espaçamento interno no formulário */
     border: 1px solid #ccc; /* Adiciona borda ao formulário */
-    border-radius: 5px; /* Arredonda os cantos do formulário */
+    border-radius: 10px; /* Arredonda os cantos do formulário */
+    text-align: center;
+    margin-left: 38%;
+    background-color: #ccccccc0;
 }
+
 
 label {
     display: block; /* Exibe os rótulos em uma nova linha */
     margin-bottom: 5px; /* Adiciona espaço entre os rótulos e os campos */
+    
 }
 
 input[type="text"],
@@ -59,15 +97,22 @@ select {
     border: 1px solid #ccc; /* Adiciona borda aos campos */
     border-radius: 5px; /* Arredonda os cantos dos campos */
     box-sizing: border-box; /* Faz com que o preenchimento seja incluído na largura */
+    
 }
 
 select {
     appearance: none; /* Remove o estilo padrão do menu suspenso */
-    background-image: url('data:image/svg+xml;base64,U3VGRT0+'); /* Adiciona um ícone de seta para baixo */
     background-repeat: no-repeat;
-    background-position: right center;
-    background-size: 10px;
+    background: right center;
+    background-size: 50px;
     padding-right: 30px; /* Adiciona espaço à direita para o ícone */
+    
+}
+
+#cidade {
+    background-color: white ;
+    cursor: pointer;
+    text-align: center; 
 }
 
 option {
@@ -82,15 +127,32 @@ button[type="submit"] {
     border: none; /* Remove a borda do botão */
     border-radius: 5px; /* Arredonda os cantos do botão */
     cursor: pointer; /* Exibe o cursor de ponteiro ao passar o mouse sobre o botão */
+    margin-top: 10%;
+}
+
+.botao {
+    width: 10%; /* Define a largura total do botão */
+    padding: 10px; /* Adiciona espaçamento interno no botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor da fonte do botão */
+    border: none; /* Remove a borda do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    cursor: pointer; /* Exibe o cursor de ponteiro ao passar o mouse sobre o botão */
+    margin-left: 65%;
 }
 
 /*Exibe as imagens*/
+
+
 #container-imagens {
     display: flex; /* Exibe as imagens em linha */
     flex-wrap: wrap; /* Permite quebrar linhas se necessário */
     justify-content: center; /* Centraliza as imagens na horizontal */
     align-items: center; /* Centraliza as imagens na vertical */
-    margin: 20px;
+    margin: 50%;
+    opacity: 0.5%;
+    filter: alpha(opacity=50);
+    
 }
 
 #container-imagens img {
@@ -99,5 +161,36 @@ button[type="submit"] {
     height: auto; /* Mantém a proporção da imagem */
     border: 1px solid #ccc; /* Borda fina */
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    opacity: 0.5;
+    
 }
 
+
+#texto {
+    margin-left: 58%;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+body {
+  min-height: 100%;
+  background-image: url("image1.png");
+  background-image: url(Screenshot_1.png);
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: 1200px;
+  
+}
+
+.lista {
+   justify-content: center;
+   align-items: center;
+   
+}
+
+#dados {
+    margin-left: 32%;
+    margin-top: -5%;
+}
